@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" style="min-height: 100%; position:relative">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <title>@yield('title')</title>
+</head>
+
+<body style="margin: 0">
+    <header>
+        <nav class="navbar navbar-expand-lg" style="background-color: #67D600; color:black;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/inicio"><img src="../../images/iespoligonosur.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/inicio" style="color:black;"><h3>Inicio</h3></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/lista" style="color:black;"><h3>Incidencias</h3></a>
+                        </li>
+
+
+
+                    </ul>
+                    <div class="d-flex ms-auto ">
+                        <ul class="navbar-nav">
+                            @guest
+                            <li >
+                                <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/login" tabindex="-1" style="color:black;"><h3>Login</h3></a>
+                            </li>
+                            <li >
+                                <a class="nav-link " href="/registro" tabindex="-1" style="color:black;"><h3>Registro</h3></a>
+                            </li>
+                            @endguest
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    @yield('content')
+    <footer style="background-color: #67D600; color:black; bottom: 0; width: 100%; height: 40px;">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-6 justify-content-center mt-2">
+                    <h6 class="text-center">Copyright Samuel Rivera Peñalosa, 2022</h6>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
