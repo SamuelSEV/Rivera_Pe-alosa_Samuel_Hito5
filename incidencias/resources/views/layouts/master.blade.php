@@ -43,13 +43,11 @@
                         <ul class="navbar-nav">
                             @auth
                             <li>
-                                <form method="POST" action="{{ route('logout') }}" x-data>
-                                    @csrf
-                                    <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="{{ route('logout') }}" @click.prevent="$root.submit();" tabindex="-1" style="color:black;">
+
+                                <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/logout" tabindex="-1" style="color:black;">
                                     <h3>cerrar sesion</h3>
                                 </a>
-        
-                                </form>
+                    
                             </li>
                             @endauth
                             @guest

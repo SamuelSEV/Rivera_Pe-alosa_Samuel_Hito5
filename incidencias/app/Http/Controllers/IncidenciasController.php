@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Incidencia;
-use App\Models\Aula;
 
 class IncidenciasController extends Controller
 {
@@ -23,12 +22,10 @@ class IncidenciasController extends Controller
      */
     public function index()
     {
-        $incidencias = $this->incidencias->obtenerIncidencias();
-        foreach ($incidencias as $i) {
-            $a = $i->aula;
-            $aula = Aula::where('id', $a)->get();
-        }
-        return view('incidencias.lista', ['incidencias' => $incidencias, 'aula' => $aula]);
+        $incidencias = Incidencia::all();
+        
+        return view('incidencias.lista', compact('incidencias'));
+            
     }
 
     /**

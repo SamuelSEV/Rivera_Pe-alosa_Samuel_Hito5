@@ -9,11 +9,11 @@
             <div class="card mt-1 mb-1 rounded-3" style="background-color: rgb(132,206,157); color:black">
                 <div class="card-header text-center d-flex justify-content-between " style="background-color: #62B56F; color:black" >
                     <h4>{{ $incidencia->titulo }}</h4>
-                    <h4>{{ $incidencia->creador }}</h4>
-                    @foreach ($aula as $a)
-                    <h4>Aula: {{$a->nombre}}</h4>
-                    @endforeach
-                    <h4>{{ $incidencia->estado }} / {{ $incidencia->created_at }}</h4>
+                    <h4>Autor: {{ $incidencia->autores->name }}</h4>
+                    
+                    <h4>Aula: {{$incidencia->aulas->nombre}}</h4>
+                    
+                    <h4>{{ $incidencia->estados->name }} / {{ $incidencia->created_at }}</h4>
                 </div>
                 <div class="card-body">
                     <p class="mb-0">{{ $incidencia->descripcion}}</p>

@@ -24,9 +24,9 @@ class Aula extends Model
         return Aula::find($id);
     }
 
-    public function incidencia()
+    public function incidencias()
     {
-      return $this->hasMany(Incidencia::class, 'incidencias_aula_foreign', 'aula');
+      return $this->hasMany(Incidencia::class, 'id', 'aula');
     }
 }
 

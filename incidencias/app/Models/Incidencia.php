@@ -17,6 +17,7 @@ class Incidencia extends Model
     public function obtenerIncidencias()
     {
         return Incidencia::all();
+
     }
 
     public function obtenerIncidenciaId($id)
@@ -24,9 +25,21 @@ class Incidencia extends Model
         return Incidencia::find($id);
     }
 
-    public function aula()
+    public function aulas()
     {
         
         return $this->belongsTo(Aula::class, 'aula', 'id');
+    }
+
+    public function autores()
+    {
+        
+        return $this->belongsTo(Autor::class, 'creador', 'id');
+    }
+
+    public function estados()
+    {
+        
+        return $this->belongsTo(Estado::class, 'estado', 'id');
     }
 }

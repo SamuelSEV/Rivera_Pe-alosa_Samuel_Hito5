@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Estado extends Model
+{
+    use HasFactory;
+
+    protected $table = "estados";
+
+    protected $fillable = ['id', 'name'];
+  
+
+    public function incidencias()
+    {
+      return $this->hasMany(Incidencia::class, 'id', 'estado');
+    }
+}
