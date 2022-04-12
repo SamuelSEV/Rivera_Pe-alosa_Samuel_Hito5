@@ -1,6 +1,13 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
+@extends('layouts.master')
+@section('title', 'Login')
+@section('content')
+<div class="container-fluid">
+
+    <div class="row justify-content-center">
+        <div class="col-4 ">
+
+            <div class="card mt-1 mb-1 rounded-3" style="background-color: rgb(132,206,157); color:black">
+            <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
 
@@ -39,10 +46,14 @@
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
+                <x-jet-button class="ml-4" style="background-color: #62B56F; color:black">
                     {{ __('Log in') }}
                 </x-jet-button>
             </div>
         </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+

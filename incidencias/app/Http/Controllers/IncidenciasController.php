@@ -9,12 +9,11 @@ use App\Models\Aula;
 class IncidenciasController extends Controller
 {
     protected $incidencias;
-    protected $aulas;
+    protected $aula;
 
     public function __construct(Incidencia $incidencias)
     {
         $this->incidencias = $incidencias;
-       
     }
 
     /**
@@ -25,9 +24,11 @@ class IncidenciasController extends Controller
     public function index()
     {
         $incidencias = $this->incidencias->obtenerIncidencias();
-        $aula = Aula::first();
-        $aula->incidencias;
-        return view('incidencias.lista',['incidencias' => $incidencias]);
+        foreach ($incidencias as $i) {
+            $a = $i->aula;
+            $aula = Aula::where('id', $a)->get();
+        }
+        return view('incidencias.lista', ['incidencias' => $incidencias, 'aula' => $aula]);
     }
 
     /**
@@ -62,7 +63,7 @@ class IncidenciasController extends Controller
     public function show($id)
     {
         $incidencia = $this->incidencias->obtenerIncidenciaId($id);
-        return view('incidencias.ver', ['incidencia'=>$incidencia]);
+        return view('incidencias.ver', ['incidencia' => $incidencia]);
     }
 
     /**
@@ -75,7 +76,6 @@ class IncidenciasController extends Controller
     {
         $incidencia = $this->incidencias->obtenerIncidenciaId($id);
         return view('incidencia.editar', ['incidencia' => $incidencia]);
-
     }
 
     /**
@@ -91,7 +91,6 @@ class IncidenciasController extends Controller
         $incidencia->fill($request->all());
         $incidencia->save();
         return redirect()->action([IncidenciasController::class, 'index']);
-
     }
 
     /**
@@ -105,6 +104,5 @@ class IncidenciasController extends Controller
         $incidencia = Incidencia::find($id);
         $incidencia->delete();
         return redirect()->action([IncidenciasController::class, 'index']);
-
     }
 }

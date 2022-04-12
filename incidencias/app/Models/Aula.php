@@ -26,7 +26,7 @@ class Aula extends Model
 
     public function incidencia()
     {
-      return $this->belongsTo(Incidencia::class);
+      return $this->hasMany(Incidencia::class, 'incidencias_aula_foreign', 'aula');
     }
 }
 

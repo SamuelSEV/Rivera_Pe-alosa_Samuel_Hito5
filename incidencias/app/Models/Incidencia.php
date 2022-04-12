@@ -12,7 +12,7 @@ class Incidencia extends Model
     protected $table = "incidencias";
 
     protected $fillable = ['id', 'titulo', 'descripcion', 'aula', 'fecha_cierre', 'estado', 'creador', 'created_at', 'updated_at'];
-  
+
 
     public function obtenerIncidencias()
     {
@@ -26,6 +26,7 @@ class Incidencia extends Model
 
     public function aula()
     {
-      return $this->hasOne(Aula::class);
+        
+        return $this->belongsTo(Aula::class, 'aula', 'id');
     }
 }

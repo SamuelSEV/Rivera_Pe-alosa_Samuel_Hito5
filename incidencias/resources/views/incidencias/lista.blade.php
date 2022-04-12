@@ -10,7 +10,9 @@
                 <div class="card-header text-center d-flex justify-content-between " style="background-color: #62B56F; color:black" >
                     <h4>{{ $incidencia->titulo }}</h4>
                     <h4>{{ $incidencia->creador }}</h4>
-                    <h4>{{ $incidencia->aula }}</h4>
+                    @foreach ($aula as $a)
+                    <h4>Aula: {{$a->nombre}}</h4>
+                    @endforeach
                     <h4>{{ $incidencia->estado }} / {{ $incidencia->created_at }}</h4>
                 </div>
                 <div class="card-body">

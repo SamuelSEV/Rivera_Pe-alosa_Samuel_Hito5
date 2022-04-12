@@ -15,19 +15,25 @@
 
 <body style="margin: 0">
     <header>
-        <nav class="navbar navbar-expand-lg" style="background-color: #67D600; color:black;">
+        <nav class="navbar navbar-expand-lg" style="background-color: #67D600; color:black; ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/inicio"><img src="../../images/iespoligonosur.png" alt=""></a>
+                <a class="navbar-brand" href="/">
+                    <img src="https://codeweek-s3.s3.amazonaws.com/event_picture/logo_iespoligonosur_aggnet_24ae5691-fd1d-439f-a6cf-38ba50a9f960.png" alt="" width="50" height="50">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/inicio" style="color:black;"><h3>Inicio</h3></a>
+                            <a class="nav-link active" aria-current="page" href="/" style="color:black;">
+                                <h3>Inicio</h3>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/lista" style="color:black;"><h3>Incidencias</h3></a>
+                            <a class="nav-link" aria-current="page" href="/lista" style="color:black;">
+                                <h3>Incidencias</h3>
+                            </a>
                         </li>
 
 
@@ -35,12 +41,27 @@
                     </ul>
                     <div class="d-flex ms-auto ">
                         <ul class="navbar-nav">
-                            @guest
-                            <li >
-                                <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/login" tabindex="-1" style="color:black;"><h3>Login</h3></a>
+                            @auth
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}" x-data>
+                                    @csrf
+                                    <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="{{ route('logout') }}" @click.prevent="$root.submit();" tabindex="-1" style="color:black;">
+                                    <h3>cerrar sesion</h3>
+                                </a>
+        
+                                </form>
                             </li>
-                            <li >
-                                <a class="nav-link " href="/registro" tabindex="-1" style="color:black;"><h3>Registro</h3></a>
+                            @endauth
+                            @guest
+                            <li>
+                                <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/login" tabindex="-1" style="color:black;">
+                                    <h3>Login</h3>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link " href="/register" tabindex="-1" style="color:black;">
+                                    <h3>Registro</h3>
+                                </a>
                             </li>
                             @endguest
                         </ul>
@@ -52,7 +73,7 @@
 
 
     @yield('content')
-    <footer style="background-color: #67D600; color:black; bottom: 0; width: 100%; height: 40px;">
+    <footer style="background-color: #67D600; color:black; bottom: 0; width: 100%; height: 40px; position: absolute;">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-6 justify-content-center mt-2">
