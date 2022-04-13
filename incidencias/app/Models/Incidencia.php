@@ -37,6 +37,12 @@ class Incidencia extends Model
         return $this->belongsTo(Autor::class, 'creador', 'id');
     }
 
+    public function comentarios()
+    {
+        
+        return $this->hasMany(Comentario::class, 'id', 'id_incidencia');
+    }
+
     public function estados()
     {
         

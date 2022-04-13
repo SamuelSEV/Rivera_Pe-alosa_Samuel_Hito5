@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IncidenciasController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\FiltroController;
+use App\Http\Controllers\ComentariosController;
 
 /*
 |--------------------------------------------------------------------------

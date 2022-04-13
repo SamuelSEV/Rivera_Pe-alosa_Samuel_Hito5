@@ -35,8 +35,13 @@
                                 <h3>Incidencias</h3>
                             </a>
                         </li>
-
-
+                        @if(@Auth::user()->rol == 'administrador')
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/usuarios" style="color:black;">
+                                <h3>Usuarios</h3>
+                            </a>
+                        </li>
+                        @endif
 
                     </ul>
                     <div class="d-flex ms-auto ">
@@ -71,11 +76,11 @@
 
 
     @yield('content')
-    <footer style="background-color: #67D600; color:black; bottom: 0; width: 100%; height: 80px; position: absolute;">
+    <footer style="background-color: #67D600; color:black; width: 100%; height: 40px; position: absolute;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12  mt-2">
-                    {{ $incidencias->render() }}
+                   
                     <h6 class="text-center">Copyright Samuel Rivera Peñalosa, 2022 </h6>
                     
                 </div>

@@ -6,17 +6,21 @@ use Illuminate\Http\Request;
 use App\Models\Incidencia;
 use App\Models\Aula;
 use App\Models\Estado;
+use App\Models\Comentario;
 
 
 
 class IncidenciasController extends Controller
 {
     protected $incidencias;
+    protected $comentarios;
     protected $aula;
 
-    public function __construct(Incidencia $incidencias)
+    public function __construct(Incidencia $incidencias, Comentario $comentarios)
     {
         $this->incidencias = $incidencias;
+        $this->comentarios = $comentarios;
+    
     }
 
     /**
@@ -39,7 +43,10 @@ class IncidenciasController extends Controller
             ->aula($aula)
             ->fecha($fecha)
             ->paginate(3);
-        return view('incidencias.lista', compact('incidencias'));
+
+        $comentarios = Comentario::orderBy('id', 'DESC')->paginate(3);
+
+        return view('incidencias.lista', compact('incidencias', 'comentarios'));
     }
 
 
