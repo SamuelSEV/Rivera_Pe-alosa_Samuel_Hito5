@@ -28,5 +28,6 @@ class Aula extends Model
     {
       return $this->hasMany(Incidencia::class, 'id', 'aula');
     }
+    
 }
 

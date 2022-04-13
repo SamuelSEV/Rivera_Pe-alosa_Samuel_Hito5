@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IncidenciasController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FiltroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,11 @@ Route::get('/', function () {
 
 Route::get('/lista', [IncidenciasController::class, 'index']);
 
+
+
 Route::get('/logout', [UserController::class, 'logout']);
+
+
 
 Route::middleware([
  

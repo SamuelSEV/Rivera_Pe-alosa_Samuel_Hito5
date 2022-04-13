@@ -18,4 +18,5 @@ class Estado extends Model
     {
       return $this->hasMany(Incidencia::class, 'id', 'estado');
     }
+    
 }

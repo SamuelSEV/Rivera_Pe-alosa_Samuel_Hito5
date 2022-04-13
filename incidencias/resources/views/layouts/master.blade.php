@@ -71,11 +71,13 @@
 
 
     @yield('content')
-    <footer style="background-color: #67D600; color:black; bottom: 0; width: 100%; height: 40px; position: absolute;">
+    <footer style="background-color: #67D600; color:black; bottom: 0; width: 100%; height: 80px; position: absolute;">
         <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-6 justify-content-center mt-2">
-                    <h6 class="text-center">Copyright Samuel Rivera Peñalosa, 2022</h6>
+            <div class="row">
+                <div class="col-12  mt-2">
+                    {{ $incidencias->render() }}
+                    <h6 class="text-center">Copyright Samuel Rivera Peñalosa, 2022 </h6>
+                    
                 </div>
             </div>
         </div>

@@ -42,4 +42,27 @@ class Incidencia extends Model
         
         return $this->belongsTo(Estado::class, 'estado', 'id');
     }
+
+    public function scopeTitulo($query, $titulo) {
+    	if ($titulo) {
+    		return $query->where('titulo','LIKE',"%$titulo%");
+    	}
+    }
+    public function scopeEstado($query, $estado) {
+    	if ($estado) {
+            
+    		return $query->where('estado','LIKE',"%$estado%");
+    	}
+    }
+    public function scopeAula($query, $aula) {
+    	if ($aula) {
+            
+    		return $query->where('aula','LIKE',"%$aula%");
+    	}
+    }
+    public function scopeFecha($query, $fecha) {
+    	if ($fecha) {
+    		return $query->where('created_at','LIKE',"%$fecha%");
+    	}
+    }
 }

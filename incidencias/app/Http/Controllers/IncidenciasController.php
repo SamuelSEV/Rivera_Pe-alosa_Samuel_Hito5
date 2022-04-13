@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Incidencia;
+use App\Models\Aula;
+use App\Models\Estado;
+
+
 
 class IncidenciasController extends Controller
 {
@@ -20,13 +24,24 @@ class IncidenciasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $incidencias = Incidencia::all();
-        
+
+
+        $titulo = $request->get('buscarportitulo');
+        $estado = $request->get('buscarporestado');
+        $aula = $request->get('buscarporaula');
+        $fecha = $request->get('buscarporfecha');
+
+        $incidencias = Incidencia::orderBy('id', 'DESC')
+            ->titulo($titulo)
+            ->estado($estado)
+            ->aula($aula)
+            ->fecha($fecha)
+            ->paginate(3);
         return view('incidencias.lista', compact('incidencias'));
-            
     }
+
 
     /**
      * Show the form for creating a new resource.
