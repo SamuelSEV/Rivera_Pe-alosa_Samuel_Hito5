@@ -22,7 +22,9 @@ Route::get('/', function () {
 
 Route::get('/lista', [IncidenciasController::class, 'index']);
 
+Route::get('/login', [UserController::class, 'index']);
 
+Route::get('/perfil/{id}', [UserController::class, 'show']);
 
 Route::get('/logout', [UserController::class, 'logout']);
 

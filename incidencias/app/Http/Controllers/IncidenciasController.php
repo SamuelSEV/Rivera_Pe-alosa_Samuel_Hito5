@@ -44,7 +44,7 @@ class IncidenciasController extends Controller
             ->fecha($fecha)
             ->paginate(3);
 
-        $comentarios = Comentario::orderBy('id', 'DESC')->paginate(3);
+        $comentarios = Comentario::orderBy('id', 'DESC')->paginate();
 
         return view('incidencias.lista', compact('incidencias', 'comentarios'));
     }

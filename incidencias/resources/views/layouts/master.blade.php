@@ -52,8 +52,11 @@
                                 <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/logout" tabindex="-1" style="color:black;">
                                     <h3>cerrar sesion</h3>
                                 </a>
-                    
+                                
                             </li>
+                            @foreach($usuarios as $usuario)
+                            <a href="/perfil/{{$usuario->id}}" class="rounded-circle float-center"><i class="fas fa-user-circle fa-3x " style="color: white;"></i></a>
+                            @endforeach
                             @endauth
                             @guest
                             <li>
@@ -80,9 +83,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12  mt-2">
-                   
+
                     <h6 class="text-center">Copyright Samuel Rivera Peñalosa, 2022 </h6>
-                    
+
                 </div>
             </div>
         </div>
