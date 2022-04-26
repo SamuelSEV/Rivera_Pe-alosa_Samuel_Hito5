@@ -4,23 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Incidencia;
+use App\Models\Comentario;
 use App\Models\Aula;
 use App\Models\Estado;
-use App\Models\Comentario;
-
-
 
 class IncidenciasController extends Controller
 {
     protected $incidencias;
     protected $comentarios;
-    protected $aula;
-
-    public function __construct(Incidencia $incidencias, Comentario $comentarios)
+    protected $aulas;
+    protected $estados;
+    public function __construct(Incidencia $incidencias, Comentario $comentarios, Aula $aulas, Estado $estados )
     {
         $this->incidencias = $incidencias;
         $this->comentarios = $comentarios;
-    
+        $this->aulas = $aulas;
+        $this->estados = $estados;
     }
 
     /**
@@ -57,7 +56,8 @@ class IncidenciasController extends Controller
      */
     public function create()
     {
-        return view('incidencias.crear');
+        $aula = $this->aulas->obtenerAulas();
+        return view('incidencias.crear', compact('aula'));
     }
 
     /**
@@ -82,7 +82,7 @@ class IncidenciasController extends Controller
     public function show($id)
     {
         $incidencia = $this->incidencias->obtenerIncidenciaId($id);
-        return view('incidencias.ver', ['incidencia' => $incidencia]);
+        return view('incidencias.ver', compact('incidencia'));
     }
 
     /**
@@ -93,8 +93,10 @@ class IncidenciasController extends Controller
      */
     public function edit($id)
     {
+        $estado = $this->estados->obtenerEstados();
+        $aula = $this->aulas->obtenerAulas();
         $incidencia = $this->incidencias->obtenerIncidenciaId($id);
-        return view('incidencia.editar', ['incidencia' => $incidencia]);
+        return view('incidencias.editar', compact('incidencia', 'estado', 'aula'));
     }
 
     /**
@@ -106,6 +108,7 @@ class IncidenciasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $incidencia = Incidencia::find($id);
         $incidencia->fill($request->all());
         $incidencia->save();

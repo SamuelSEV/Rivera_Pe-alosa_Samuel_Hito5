@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comentario;
+use App\Models\Incidencia;
 
 class ComentariosController extends Controller
 {
     protected $comentarios;
     protected $aula;
 
-    public function __construct(Comentario $comentarios)
+    public function __construct(Comentario $comentarios,Incidencia $incidencias, )
     {
         $this->comentarios = $comentarios;
+        $this->incidencias = $incidencias;
     }
     public function index(Request $request)
     {
@@ -27,9 +29,10 @@ class ComentariosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('incidencias.crear');
+        $incidencia = $this->incidencias->obtenerIncidenciaId($id);
+        return view('incidencias.comentario', compact('incidencia'));
     }
 
     /**
@@ -42,7 +45,7 @@ class ComentariosController extends Controller
     {
         $comentario = new Comentario($request->all());
         $comentario->save();
-        return redirect()->action([ComentariosController::class, 'index']);
+        return redirect()->action([IncidenciasController::class, 'index']);
     }
 
     /**

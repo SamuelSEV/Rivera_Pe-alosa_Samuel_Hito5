@@ -12,7 +12,11 @@ class Estado extends Model
     protected $table = "estados";
 
     protected $fillable = ['id', 'name'];
-  
+
+    public function obtenerEstados()
+    {
+        return Estado::all();
+    }
 
     public function incidencias()
     {

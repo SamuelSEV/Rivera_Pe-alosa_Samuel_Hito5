@@ -9,11 +9,9 @@ class Comentario extends Model
 {
     use HasFactory;
 
-    use HasFactory;
-
     protected $table = "comentarios";
 
-    protected $fillable = ['id', 'id_incidencia', 'autor', '', 'titulo', 'descripcion', 'fecha', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'id_incidencia', 'autor', 'titulo', 'descripcion', 'fecha', 'created_at', 'updated_at'];
 
 
     public function obtenerComentarios()

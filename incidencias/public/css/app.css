@@ -1041,6 +1041,15 @@ select {
 .-mt-px {
   margin-top: -1px;
 }
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-0 {
+  margin-bottom: 0px;
+}
 .block {
   display: block;
 }
@@ -2159,4 +2168,6 @@ select {
     padding-right: 2rem;
   }
 }
+
+
 
