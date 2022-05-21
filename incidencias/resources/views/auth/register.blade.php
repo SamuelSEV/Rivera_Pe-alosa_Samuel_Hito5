@@ -5,9 +5,9 @@
 
     <div class="row justify-content-center">
         <div class="col-4 ">
-            <div class="card mt-1 mb-1 rounded-3" style="background-color: rgb(132,206,157); color:black">
-                <div class="card-header text-center d-flex justify-content-center " style="background-color: #62B56F; color:black">
-                    <span class="rounded-circle float-center"><i class="fas fa-user-circle fa-3x " style="color: white;"></i></span>
+            <div class="card mt-1 mb-1 rounded-3">
+                <div class="card-header text-center d-flex justify-content-center encabezado">
+                    <span class="rounded-circle float-center"><i class="fas fa-user-circle fa-3x "></i></span>
                 </div>
 
                 <x-jet-validation-errors class="mb-4" />
@@ -22,7 +22,7 @@
 
                     <div class="mt-4">
                         <x-jet-label for="email" value="{{ __('Email') }}" />
-                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                        <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[iespoligonosur]+([.][org]+)" placeholder="@iespoligonosur.org"/>
                     </div>
 
                     <div class="mt-4">
@@ -57,7 +57,7 @@
                             {{ __('Ya estas registrado?') }}
                         </a>
 
-                        <x-jet-button class="ml-4" style="background-color: #62B56F; color:black">
+                        <x-jet-button class="ml-4 boton">
                             {{ __('Registrar') }}
                         </x-jet-button>
                     </div>

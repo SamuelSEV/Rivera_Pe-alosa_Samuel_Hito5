@@ -5,16 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comentario;
 use App\Models\Incidencia;
+use App\Models\Autor;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotifyMailComentario;
 
 class ComentariosController extends Controller
 {
     protected $comentarios;
-    protected $aula;
+    protected $incidencias;
+    protected $autores;
 
-    public function __construct(Comentario $comentarios,Incidencia $incidencias, )
+    public function __construct(Comentario $comentarios,Incidencia $incidencias, Autor $autores)
     {
         $this->comentarios = $comentarios;
         $this->incidencias = $incidencias;
+        $this->autor = $autores;
     }
     public function index(Request $request)
     {
@@ -43,8 +48,15 @@ class ComentariosController extends Controller
      */
     public function store(Request $request)
     {
+        $incidencia = new Incidencia();
         $comentario = new Comentario($request->all());
         $comentario->save();
+        
+        
+        $_POST['autor'] = $comentario->autores->name;
+        if ($incidencia->autores->notificacion){
+            Mail::to($comentario->autores->email)->send(new NotifyMailComentario($_POST['autor'],$_POST['descripcion']));
+        }
         return redirect()->action([IncidenciasController::class, 'index']);
     }
 

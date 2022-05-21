@@ -2168,6 +2168,60 @@ select {
     padding-right: 2rem;
   }
 }
+.navbar {
+  background-color: #67D600 !important;
+  color: black !important; 
+}
+.nav-link {
+  color: black !important;
+}
+
+.nav-link:hover, .nav-item:active {
+  color: rgb(255, 255, 255) !important;
+}
+
+footer {
+  background-color: #67D600 !important;
+  color: black !important; 
+  width: 100% !important; 
+  height: 40px !important; 
+  position: absolute !important; 
+  bottom: 0 !important;
+}
+.fa-check, .fa-edit {
+  color: rgb(6, 242, 61) !important;
+  font-size: 30px !important;
+}
+.fa-times, .fa-trash-alt {
+  color: rgb(255, 2, 2) !important;
+  font-size: 30px !important;
+}
+
+.fa-user-circle {
+  color: white !important;
+}
+
+.card, .filtro, .paginacion {
+  background-color: rgb(132,206,157) !important;
+  color: black !important;
+}
+.encabezado, .pie, .boton {
+  background-color: #62B56F !important; 
+  color:black !important;
+}
+hr {
+  color: black; 
+  margin: 1px;
+}
+
+.comentario-header {
+  background-color: #F6F6F6 !important;
+  color:black !important;
+}
+.comentario-body {
+  background-color: white !important;
+  color:black !important;
+}
 
 
 

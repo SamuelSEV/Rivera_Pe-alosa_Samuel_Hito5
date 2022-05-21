@@ -7,11 +7,10 @@
                 <div class="row justify-content-center">
                     <div class="col-12 ">
 
-                        <div class="card mt-1 mb-1 rounded-3" style="background-color: rgb(132,206,157); color:black">
-                            <div class="card-header text-center d-flex justify-content-center "
-                                style="background-color: #62B56F; color:black">
+                        <div class="card mt-1 mb-1 rounded-3">
+                            <div class="card-header text-center d-flex justify-content-center">
                                 <h1>LISTA USUARIOS</h1>
-                                <hr style="color: black; margin: 0px" />
+                                <hr/>
                             </div>
                             <div class="card-body">
 
@@ -31,27 +30,26 @@
                                     @foreach ($usuarios as $usuario)
                                         <tr>
                                             <td>{{ $usuario->name }}</td>
-                                            <td>{{ $usuario->password }}</td>
+                                            <td class="blurry-text" >{{ $usuario->password }}</td>
                                             <td>{{ $usuario->email }}</td>
                                             <td>{{ $usuario->rol }}</td>
                                             @if ($usuario->validacion)
                                             <td>
-                                                <i class='fas fa-check'  style="color:rgb(6, 242, 61)"></i>
+                                                <i class='fas fa-check' ></i>
                                             </td>
                                             
                                             @else
                                             <td>
-                                                <i class='fas fa-times' style="color:rgb(255, 2, 2)"></i>
+                                                <i class='fas fa-times' ></i>
                                             </td>
                                             @endif
                                             <td>
-                                                <a href="/usuarios/editar/{{ $usuario->id }}" style="color:rgb(6, 242, 61)"><i
-                                                            class='fas fa-edit'></i></a>
+                                                <a href="/usuarios/editar/{{ $usuario->id }}"><i class='fas fa-edit'></i></a>
                                             </td>
                                             <td>
-                                                <a href="/usuarios/eliminar/{{ $usuario->id }}" style="color:rgb(255, 2, 2)"
-                                                        onclick="return eliminarUsuario('Eliminar Usuario')"><i
-                                                            class='fas fa-trash-alt'></i></a>
+                                                <a href="/usuarios/eliminar/{{ $usuario->id }}" onclick="return eliminarUsuario('Eliminar Usuario')">
+                                                    <i class='fas fa-trash-alt'></i>
+                                                </a>
                                             </td>
 
                                         </tr>

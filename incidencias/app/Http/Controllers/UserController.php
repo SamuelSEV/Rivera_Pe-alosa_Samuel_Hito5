@@ -26,7 +26,7 @@ class UserController extends Controller
     {
         Cookie::queue(Cookie::forget('laravel_session'));
         
-        return view('auth.login');
+        return view('incidencias.index');
     }
 
     public function show($id)

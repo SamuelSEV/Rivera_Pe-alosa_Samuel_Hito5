@@ -6,11 +6,10 @@
             <div class="row justify-content-center">
                 <div class="col-12 ">
 
-                    <div class="card mt-1 mb-1 rounded-3" style="background-color: rgb(132,206,157); color:black">
-                        <div class="card-header text-center d-flex justify-content-center "
-                            style="background-color: #62B56F; color:black">
+                    <div class="card mt-1 mb-1 rounded-3">
+                        <div class="card-header text-center d-flex justify-content-center encabezado">
                             <h1>EDITAR PERFIL</h1>
-                            <hr style="color: black; margin: 0px" />
+                            <hr />
                         </div>
                         <div class="card-body d-flex justify-content-center">
                             <form action="/usuarios/editar/{{ $usuario->id }}" method="POST">
@@ -43,7 +42,7 @@
                                     </div>
                                 @else
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" unchecked
                                             name="validacion" value="1">
                                         <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                                     </div>

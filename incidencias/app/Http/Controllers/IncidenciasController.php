@@ -7,6 +7,10 @@ use App\Models\Incidencia;
 use App\Models\Comentario;
 use App\Models\Aula;
 use App\Models\Estado;
+use App\Models\Autor;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotifyMail;
+
 
 class IncidenciasController extends Controller
 {
@@ -14,12 +18,14 @@ class IncidenciasController extends Controller
     protected $comentarios;
     protected $aulas;
     protected $estados;
-    public function __construct(Incidencia $incidencias, Comentario $comentarios, Aula $aulas, Estado $estados )
+    protected $autores;
+    public function __construct(Incidencia $incidencias, Comentario $comentarios, Aula $aulas, Estado $estados, Autor $autores )
     {
         $this->incidencias = $incidencias;
         $this->comentarios = $comentarios;
         $this->aulas = $aulas;
         $this->estados = $estados;
+        $this->autor = $autores;
     }
 
     /**
@@ -41,9 +47,10 @@ class IncidenciasController extends Controller
             ->estado($estado)
             ->aula($aula)
             ->fecha($fecha)
-            ->paginate(3);
+            ->paginate();
 
         $comentarios = Comentario::orderBy('id', 'DESC')->paginate();
+       
 
         return view('incidencias.lista', compact('incidencias', 'comentarios'));
     }
@@ -69,7 +76,18 @@ class IncidenciasController extends Controller
     public function store(Request $request)
     {
         $incidencia = new Incidencia($request->all());
+        
         $incidencia->save();
+        
+        $_POST['aula'] = $incidencia->aulas->nombre;
+        $_POST['estado'] = $incidencia->estados->name;
+        $_POST['creador'] = $incidencia->autores->name;
+        if ($incidencia->autores->notificacion){
+            Mail::to($incidencia->autores->email)->send(new NotifyMail($_POST['titulo'],$_POST['descripcion'],$_POST['aula'],$_POST['estado'],$_POST['creador']));   
+        }
+        if ($incidencia->estado == 5 || $incidencia->estado == 6) {
+            Mail::to($incidencia->autores->email)->send(new NotifyMail($_POST['titulo'],$_POST['descripcion'],$_POST['aula'],$_POST['estado'],$_POST['creador']));   
+        }
         return redirect()->action([IncidenciasController::class, 'index']);
     }
 

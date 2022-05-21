@@ -6,9 +6,9 @@
     <div class="row justify-content-center">
         <div class="col-4 ">
 
-            <div class="card mt-1 mb-1 rounded-3 " style="background-color: rgb(132,206,157); color:black">
-                <div class="card-header text-center d-flex justify-content-center " style="background-color: #62B56F; color:black">
-                    <span class="rounded-circle float-center"><i class="fas fa-user-circle fa-3x " style="color: white;"></i></span>
+            <div class="card mt-1 mb-1 rounded-3 " >
+                <div class="card-header text-center d-flex justify-content-center encabezado" >
+                    <span class="rounded-circle float-center"><i class="fas fa-user-circle fa-3x "></i></span>
                 </div>
 
                 <x-jet-validation-errors class="mb-4" />
@@ -46,7 +46,7 @@
                         </a>
                         @endif
 
-                        <x-jet-button class="ml-4 " style="background-color: #62B56F; color:black">
+                        <x-jet-button class="ml-4 boton">
                             {{ __('Login') }}
                         </x-jet-button>
                     </div>

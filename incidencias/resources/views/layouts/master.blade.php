@@ -20,7 +20,7 @@
 <body style="margin: 0px; ">
 
     <header>
-        <nav class="navbar navbar-expand-lg" style="background-color: #67D600; color:black; ">
+        <nav class="navbar navbar-expand-lg" >
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
                     <img src="https://codeweek-s3.s3.amazonaws.com/event_picture/logo_iespoligonosur_aggnet_24ae5691-fd1d-439f-a6cf-38ba50a9f960.png"
@@ -33,18 +33,18 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/" style="color:black;">
+                            <a class="nav-link active" aria-current="page" href="/">
                                 <h3>Inicio</h3>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/lista" style="color:black;">
+                            <a class="nav-link" aria-current="page" href="/lista">
                                 <h3>Incidencias</h3>
                             </a>
                         </li>
                         @if (@Auth::user()->rol == 'administrador')
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/usuarios/listar" style="color:black;">
+                                <a class="nav-link" aria-current="page" href="/usuarios/listar">
                                     <h3>Usuarios</h3>
                                 </a>
                             </li>
@@ -57,25 +57,25 @@
                                 <li>
 
                                     <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/logout"
-                                        tabindex="-1" style="color:black;">
+                                        tabindex="-1" >
                                         <h3>cerrar sesion</h3>
                                     </a>
 
                                 </li>
 
                                 <a href="/perfil/ver/{{@Auth::user()->id}}" class="rounded-circle float-center"><i
-                                        class="fas fa-user-circle fa-3x " style="color: white;"></i></a>
+                                        class="fas fa-user-circle fa-3x "></i></a>
 
                             @endauth
                             @guest
                                 <li>
                                     <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/login"
-                                        tabindex="-1" style="color:black;">
+                                        tabindex="-1" >
                                         <h3>Login</h3>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="nav-link " href="/register" tabindex="-1" style="color:black;">
+                                    <a class="nav-link " href="/register" tabindex="-1" >
                                         <h3>Registro</h3>
                                     </a>
                                 </li>
@@ -89,7 +89,7 @@
 
 
     @yield('content')
-    <footer style="background-color: #67D600; color:black; width: 100%; height: 40px; position: absolute; bottom: 0;">
+    <footer>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12  mt-2">

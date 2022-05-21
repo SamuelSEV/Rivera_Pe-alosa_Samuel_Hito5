@@ -4,13 +4,12 @@
     <div class="container-fluid" style="margin-bottom: 48px">
         @auth
             <div class="row justify-content-center">
-                <div class="col-12 ">
+                <div class="col-8 ">
 
-                    <div class="card mt-1 mb-1 rounded-3" style="background-color: rgb(132,206,157); color:black">
-                        <div class="card-header text-center d-flex justify-content-center "
-                            style="background-color: #62B56F; color:black">
+                    <div class="card mt-1 mb-1 rounded-3">
+                        <div class="card-header text-center d-flex justify-content-center encabezado">
                             <h1>NUEVA INCIDENCIA</h1>
-                           <hr style="color: black; margin: 0px" />
+                           <hr />
                         </div>
                         <div class="card-body d-flex justify-content-center">
                             <form action="/lista/editar/{{ $incidencia->id}}" method="POST">
@@ -36,8 +35,12 @@
                                     @endforeach
                                     
                                 </select>
-                                <input class="card-text mb-2 form-control" type="hidden" name="creador" value="{{@Auth::user()->id}}">
-                                <button  class="btn btn-success btn-lg" type="submit" value="crear">EDITAR INCIDENCIA</a>
+                                @if ($incidencia->estados->name == 'Resuelto' || $incidencia->estados->name == 'Derivado a una nueva incidencia')
+                                     <input class="card-text mb-2 form-control" type="text" name="fecha_cierre" value="{{$incidencia->updated_at}}" hidden>
+                                @endif
+                               
+                                
+                                <button  class="btn btn-success btn-lg" type="submit" value="crear">EDITAR INCIDENCIA</button>
                             </form>
                         </div>
                     </div>
