@@ -17,31 +17,36 @@
     <title>@yield('title')</title>
 </head>
 
-<body style="margin: 0px; ">
+<body >
+    <div class="container-fluid">
+        <div class="row">
 
-    <header>
-        <nav class="navbar navbar-expand-lg" >
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img src="https://codeweek-s3.s3.amazonaws.com/event_picture/logo_iespoligonosur_aggnet_24ae5691-fd1d-439f-a6cf-38ba50a9f960.png"
-                        alt="" width="50" height="50">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+            <header class="col-12">
+
+                <nav class="navbar d-flex d-inline-block justify-content-around align-items-center">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">
+                                <img class="logo" src="https://codeweek-s3.s3.amazonaws.com/event_picture/logo_iespoligonosur_aggnet_24ae5691-fd1d-439f-a6cf-38ba50a9f960.png"
+                                    alt="" >
+                            </a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav ">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">
                                 <h3>Inicio</h3>
                             </a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav ">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="/lista">
                                 <h3>Incidencias</h3>
                             </a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav ">
                         @if (@Auth::user()->rol == 'administrador')
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="/usuarios/listar">
@@ -51,55 +56,66 @@
                         @endif
 
                     </ul>
-                    <div class="d-flex ms-auto ">
+
+
+
+                    @auth
                         <ul class="navbar-nav">
-                            @auth
-                                <li>
+                            <li class="nav-item">
 
-                                    <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/logout"
-                                        tabindex="-1" >
-                                        <h3>cerrar sesion</h3>
-                                    </a>
+                                <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/logout"
+                                    tabindex="-1">
+                                    <h3>cerrar sesion</h3>
+                                </a>
 
-                                </li>
-
-                                <a href="/perfil/ver/{{@Auth::user()->id}}" class="rounded-circle float-center"><i
-                                        class="fas fa-user-circle fa-3x "></i></a>
-
-                            @endauth
-                            @guest
-                                <li>
-                                    <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/login"
-                                        tabindex="-1" >
-                                        <h3>Login</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="nav-link " href="/register" tabindex="-1" >
-                                        <h3>Registro</h3>
-                                    </a>
-                                </li>
-                            @endguest
+                            </li>
                         </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item ">
+                                <a href="/perfil/ver/{{ @Auth::user()->id }}" class="rounded-circle float-center"><i
+                                class="fas fa-user-circle fa-3x perfil"></i></a>
+                            </li>
+                        </ul>
+                        
+
+                    @endauth
+                    @guest
+                        <ul class="navbar-nav ">
+                            <li class="nav-item">
+                                <a class="nav-link bg-image hover-overlay ripple shadow-1-strong" href="/login"
+                                    tabindex="-1">
+                                    <h3>Login</h3>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ">
+                            <li>
+                                <a class="nav-link " href="/register" tabindex="-1">
+                                    <h3>Registro</h3>
+                                </a>
+                            </li>
+                        </ul>
+                    @endguest
+
+
+                </nav>
+            </header>
+        </div>
+      
+
+
+        @yield('content')
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12  mt-2">
+
+                        <h6 class="text-center">Copyright Samuel Rivera Peñalosa, 2022 </h6>
+
                     </div>
                 </div>
             </div>
-        </nav>
-    </header>
-
-
-    @yield('content')
-    <footer>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12  mt-2">
-
-                    <h6 class="text-center">Copyright Samuel Rivera Peñalosa, 2022 </h6>
-
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
 </body>
 
 </html>

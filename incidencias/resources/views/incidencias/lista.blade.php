@@ -4,7 +4,7 @@
     <div class="container-fluid" style="margin-bottom: 48px">
         @auth
             @if (@Auth::user()->validacion)
-                <div class="row justify-content-center mt-2 mb-2 filtro">
+                <div class="row justify-content-center mt-2 mb-2 filtro ">
                     <div class="col-12  text-center p-2">
                         <form class="form-inline d-flex justify-content-between">
                             <button class="btn btn-success btn-lg mr-2" type="submit"><i class='fas fa-search'></i></button>
@@ -37,7 +37,7 @@
                         <div class="row justify-content-center">
                             <div class="col-12 ">
 
-                                <div class="card mt-1 mb-1 rounded-3">
+                                <div class="card mt-1 mb-1 rounded-3 ">
                                     <div class="card-header text-center d-flex justify-content-between encabezado">
                                         <h4>{{ $incidencia->titulo }}</h4>
                                         <h4>Autor: {{ $incidencia->autores->name }}</h4>

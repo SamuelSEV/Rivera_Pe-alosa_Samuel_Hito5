@@ -2222,6 +2222,107 @@ hr {
   background-color: white !important;
   color:black !important;
 }
+.inicio {
+  background-image: url('https://codeweek-s3.s3.amazonaws.com/event_picture/logo_iespoligonosur_aggnet_24ae5691-fd1d-439f-a6cf-38ba50a9f960.png'); 
+  background-repeat: no-repeat; 
+  background-position: center center; 
+  background-size: 30%";
+}
 
+.inicio > div > div > p {
+  font-size: 95pt; 
+  font-weight: blod;
+}
+body > header, .continer-fluid > .row{
+  margin: 0px !important; 
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
 
+.row>* {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 0px !important; 
+  padding-left: 0px !important;
+  margin-top: var(--bs-gutter-y)
+}
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  width: 98% !important;
+  padding-right: 0px !important; 
+  padding-left: 0px !important;
+ 
+}
 
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+.perfil {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 991px) {
+  .inicio {
+    background-image: url('https://codeweek-s3.s3.amazonaws.com/event_picture/logo_iespoligonosur_aggnet_24ae5691-fd1d-439f-a6cf-38ba50a9f960.png'); 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    background-size: 23%;
+  }
+  
+  .inicio > div > div > p {
+    font-size: 45pt; 
+    font-weight: blod;
+  }
+  body > header, .continer-fluid > .row {
+    margin: 0px !important; 
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+  
+  .row>* {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0px !important; 
+    padding-left: 0px !important;
+    margin-top: var(--bs-gutter-y)
+  }
+  
+}
+@media screen and (max-width: 600px) {
+  .inicio {
+    background-image: url('https://codeweek-s3.s3.amazonaws.com/event_picture/logo_iespoligonosur_aggnet_24ae5691-fd1d-439f-a6cf-38ba50a9f960.png'); 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    background-size: 23%;
+  }
+  
+  .inicio > div > div > p {
+    font-size: 45pt; 
+    font-weight: blod;
+  }
+  body > header, .continer-fluid > .row {
+    margin: 0px !important; 
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+  
+  .row>* {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0px !important; 
+    padding-left: 0px !important;
+    margin-top: var(--bs-gutter-y)
+  }
+
+  
+  .nav-link > h3 {
+    font-size: 100%;
+  }
+  
+}

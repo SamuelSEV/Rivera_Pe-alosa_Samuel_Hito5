@@ -54,7 +54,7 @@ class ComentariosController extends Controller
         
         
         $_POST['autor'] = $comentario->autores->name;
-        if ($incidencia->autores->notificacion){
+        if ($comentario->autores->notificacion){
             Mail::to($comentario->autores->email)->send(new NotifyMailComentario($_POST['autor'],$_POST['descripcion']));
         }
         return redirect()->action([IncidenciasController::class, 'index']);
