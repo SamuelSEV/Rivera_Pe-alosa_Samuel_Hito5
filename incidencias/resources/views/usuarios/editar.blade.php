@@ -18,9 +18,6 @@
                                 <label class="card-text form-label">NOMBRE:</label>
                                 <input class="card-text mb-2 form-control" type="text" name="name" value="{{ $usuario->name }}"
                                     placeholder="Introduce usuario">
-                                <label class="card-text form-label">CONTRASEÑA:</label>
-                                <input class="card-text mb-2 form-control" type="password" name="password"
-                                    value="{{ $usuario->password }}" placeholder="Introduce password">
                                 <label class="card-text form-label">CORREO:</label>
                                 <input class="card-text mb-2 form-control" type="email" name="email"
                                     value="{{ $usuario->email }}" placeholder="Introduce password">

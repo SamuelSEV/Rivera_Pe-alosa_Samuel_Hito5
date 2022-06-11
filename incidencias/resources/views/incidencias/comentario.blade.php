@@ -22,6 +22,7 @@
                                 <textarea  class="card-text mb-2 form-control"  rows="10" cols="50" name="descripcion" placeholder="Introduce descripción"></textarea>
                                 
                                 <input class="card-text mb-2 form-control" type="hidden" name="autor" value="{{@Auth::user()->id}}">
+                                <input class="card-text mb-2 form-control" type="hidden" name="fecha" value="{{$incidencia->created_at}}">
                                 <button  class="btn btn-success btn-lg" type="submit" value="comentar">COMENTAR</a>
                             </form>
                         </div>

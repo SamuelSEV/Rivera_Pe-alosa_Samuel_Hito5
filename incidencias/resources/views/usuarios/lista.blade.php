@@ -18,7 +18,6 @@
                                     <thead>
                                         <tr>
                                             <th>NOMBRE</th>
-                                            <th>CONTRASEÑA</th>
                                             <th>CORREO</th>
                                             <th>ROL</th>
                                             <th>VALIDADO</th>
@@ -30,7 +29,6 @@
                                     @foreach ($usuarios as $usuario)
                                         <tr>
                                             <td>{{ $usuario->name }}</td>
-                                            <td class="blurry-text" >{{ $usuario->password }}</td>
                                             <td>{{ $usuario->email }}</td>
                                             <td>{{ $usuario->rol }}</td>
                                             @if ($usuario->validacion)

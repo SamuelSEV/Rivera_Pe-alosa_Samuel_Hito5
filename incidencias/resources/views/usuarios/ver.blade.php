@@ -16,9 +16,6 @@
                                 <div class="text-left">
                                     <h4>Nombre: {{ $usuario->name }}</h4>
                                 </div>
-                                <div class="text-left">
-                                    <h4>Contraseña: {{ $usuario->password }}</h4>
-                                </div>
                                 <div class="col-12">
                                     <h4>Email: {{ $usuario->email }}</h4>
                                 </div>

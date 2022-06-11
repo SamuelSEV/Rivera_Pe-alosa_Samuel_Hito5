@@ -68,7 +68,7 @@
                                                     {{ method_field('PUT') }}
                                                     
                                                     <select class="card-text mb-2 form-control" name="estado"  hidden>
-                                                        <option value="5"  selected
+                                                        <option value="3"  selected
                                                             >Resuelto</option>
                                                     </select>
                                                     @if ($incidencia->estados->name == 'Resuelto' || $incidencia->estados->name == 'Derivado a una nueva incidencia')
